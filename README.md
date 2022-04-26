@@ -1,6 +1,6 @@
 <img width="1228" alt="multiverse_analysis_discrim_error_priors" src="https://user-images.githubusercontent.com/16432683/165355476-d6d3dd97-003b-48f8-9305-89371ba92ea5.png">
      
-<img width="828" alt="all_comparisons_bayes" src="https://user-images.githubusercontent.com/16432683/165355645-0267435c-3109-485e-91ba-f10b003ae416.png>
+<img width="828" alt="all_comparisons_bayes" src="https://user-images.githubusercontent.com/16432683/165355645-0267435c-3109-485e-91ba-f10b003ae416.png">
                                           
 <img width="828" alt="TargetDomainc" src="https://user-images.githubusercontent.com/16432683/165351251-bb57398b-0362-4b1a-a4e4-5a94125cd702.png">
                                                                                                                                                 
