@@ -1,0 +1,1020 @@
+\documentclass[
+  notitlepage]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+
+\usepackage{nowidow}
+\usepackage{adjustbox}
+\usepackage{pdfpages}
+\usepackage{rotating}
+
+%%% HELPER CODE FOR DEALING WITH EXTERNAL REFERENCES
+\usepackage{xr}
+\makeatletter
+\newcommand*{\addFileDependency}[1]{
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{
+    \externaldocument{#1}
+    \addFileDependency{#1.tex}
+    \addFileDependency{#1.aux}
+}
+
+%%% END HELPER CODE
+\usepackage{xr-hyper}
+\usepackage{caption}
+\usepackage{subcaption}
+\myexternaldocument{Appendices/results/Chapter-IV/frequentist_extra_ttests}
+\myexternaldocument{Appendices/results/Chapter-IV/bayesian_predictive_checks}
+\myexternaldocument{Chapter_IV/chapter-Study3}
+\myexternaldocument{Chapter_IV/results/Results}
+\myexternaldocument{Chapter_IV/results/connectome_vs_mvpa_quality_tab}
+\myexternaldocument{Chapter_IV/results/dwi_sensitivities}
+\myexternaldocument{Chapter_IV/results/func_sensitivities}
+\myexternaldocument{Chapter_IV/results/functional_rankings}
+\myexternaldocument{Chapter_IV/results/TrainTest_sample_clinical_characteristics}
+\myexternaldocument{Chapter_IV/results/TrainTest_sample_demographic_descriptives}
+\myexternaldocument{Chapter_IV/results/tuning_sample_clinical_characteristics}
+\myexternaldocument{Chapter_IV/results/tuning_sample_demographic_descriptives}
+\myexternaldocument{Chapter_IV/results/tuning_sample_duration_descriptives}
+\myexternaldocument{Chapter_IV/results/tuning_sample_symptom_descriptives}
+\graphicspath{{Chapter_IV/figures/}{Chapter_IV/results/}{Appendices/results/Chapter-IV/}}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\AtBeginDocument{\let\maketitle\relax} \pagenumbering{gobble}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\setcitestyle{numbers,square,semicolon}
+\let\citep\cite
+\renewcommand{\citenumfont}[1]{\textbf{#1}}
+
+\usepackage{subfiles}
+\begin{document}
+\hypertarget{part-i-learning-a-depression-persistent-connectotype}{%
+\section{(Part I) Learning a Depression-Persistent
+Connectotype}\label{part-i-learning-a-depression-persistent-connectotype}}
+\hypertarget{source-domain-descriptives}{%
+\subsection{Source domain
+descriptives}\label{source-domain-descriptives}}
+\begin{sidewaystable}
+\begin{minipage}{\textwidth}
+\centering
+\adjustbox{width=\textwidth,height=\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/tuning_sample_demographic_descriptives}}
+\subcaption{\label{tab:tuning_sample_demographic_descriptives}\scriptsize{Demographic}}
+\vspace{\baselineskip}
+\adjustbox{width=\textwidth,height=\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/tuning_sample_clinical_characteristics}}
+\subcaption{\label{tab:tuning_sample_clinical_characteristics}\scriptsize{Clinical}}
+\end{minipage}
+\caption{(Source Domain) \scriptsize{The table summarizes depression and rumination severity of the tuning sample subjects based on contemporaneous BDI-II and RRS-Brooding scores, respectively, and depression and rumination persistence in the form of shared variance across time-points for each of these scales as estimated by PC1.}}
+\end{sidewaystable}
+\setlength{\belowcaptionskip}{-10pt}
+
+As summarized in \textbf{Table~\ref{tab:tuning_sample_demographic_descriptives}},
+the data analyzed in the source domain consisted of N = 238
+participants, recruited across two continents and spanning three
+aggregated data sets (SWU = SWU = 117, NKI = 91, UT-ABM = 30). The
+majority of participants in the sample were young adults, but ages
+varied widely across the 18-65 range, with a mean age of 33.7 (SD =
+16.6). There was an approximately 3:2 ratio of females to males, a
+slight imbalance that if anything reflects the known tendency of females
+to report more depression symptoms~\cite{Butler1994}.
+All included participants in the sample were examined for at least two
+and at most four visits, spanning a variety of time-scales, ranging from
+one month to three years, with the average time at just under one year.
+To conceptualize the degree of longitudinal participation, we performed
+k-means clustering on the dual basis of both number of visits and total
+number of days participated. Based on the Silhouette
+method~\cite{Rousseeuw1987}, k=7 distinct clusters was
+the optimal partitioning and can be visualized in \textbf{Figure~\ref{fig:tuning_set_longitudinal_profiles}} as well as summarized in
+\textbf{Table~\ref{fig:tuning_set_longitudinal_profiles}}. To avoid substantial
+missing data for those participants with only two time points of data,
+depression and rumination severity data were collapsed into two time
+points (baseline and follow-up) and their study duration data was
+treated as a random effect that we deconfounded from subsequent linear
+regression models, along with age, gender, and respective study site.
+Again, this involved residualizing the input features by subtracting the
+contributions of their confounding
+variables~\cite{Chyzhyk2018,Rao2017}. Although SCID
+diagnostic interview data was not available for the data analyzed in the
+source domain included participants were either sub-clinically depressed
+or dysphoric as evaluated informally based on depression symptom
+severity on the BDI-II questionnaire. More specifically, N = 164 had
+elevated but sub-clinical (4 \textless{} BDI \textless= 14) depressive
+symptoms, N = 27 participants were mildly depressed (14 \textless= BDI
+\textless{} 20), and N = 47 participants would be considered moderately
+or severely depressed (BDI \textgreater{} 20) for at least one
+time-point. Average depression and rumination severity is summarized in
+\textbf{Table~\ref{tab:tuning_sample_clinical_characteristics}}. Since ruminative
+brooding was assessed using both the RRS, RSQ, and a Chinese version
+across multiple data-sets, we harmonized this measure within each
+time-point by rescaling to a feature range of 0-100.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true,angle=270]{Chapter_IV/figures/tuning_behavioral-1.pdf}
+\caption{(Source Domain) \label{fig:tuning_set_longitudinal_profiles}\scriptsize{The figure depicts K=7 heterogeneous clusters of study participation based on both cumulative days participated and cumulative number of study visits.}}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{predictive-performance-descriptives}{%
+\subsection{Predictive Performance
+Descriptives}\label{predictive-performance-descriptives}}
+As shown in \textbf{Figure~\ref{fig:prediction_performance_overview}}, some but
+not all embedded connectome feature spaces weakly predicted
+contemporaneous depression and rumination severity
+(\(R^{2}_{dep}\)=0.092 \(\pm\) 0.048; \(R^{2}_{rum}\)=0.061 \(\pm\)
+0.046), and some but not all connectome feature spaces predicted
+moderate variance (\(R^{2}>0.2\)) in depression and rumination
+persistence when controlling for baseline depression severity
+(\(R^{2}_{dep}\)=0.255 \(\pm\) 0.087; \(R^{2}_{rum}\)=0.152 \(\pm\)
+0.063). Both structural and functional connectomes were generally better
+predictors of depression phenotypes (\(R^{2}_{dwi}\)=0.174 \(\pm\) 0.1;
+\(R^{2}_{func}\)=0.104 \(\pm\) 0.057) as compared to rumination
+phenotypes (\(R^{2}_{dwi}\)=0.126 \(\pm\) 0.082; \(R^{2}_{func}\)=0.104
+\(\pm\) 0.057). In general, however, connectomes were better at
+predicting the persistence phenotypes (mean \(R^{2}_{persist}\)=0.204
+\(\pm\) 0.092) as compared to the severity phenotypes (mean
+\(R^{2}_{severity}\)=0.079 \(\pm\) 0.05). Whereas overall, the majority
+of both structural (68.89\%) and functional (78.16\%) connectomes were
+good predictors (\(R^{2}>0.2\)) of depression persistence, a substantial
+proportion of connectome recipes (31.11\% and 21.84\%, respectively)
+were also poor predictors (\(R^{2}<0.2\)). This tracked with the
+observation that connectome predictions of depression persistence had
+higher variance (SD=0.087) than did those of rumination persistence
+(SD=0.063).
+
+We also tuned connectomes attributes to predict brain age as a null
+model. Among other advantages, this approach could help to determine the
+extent to which structural and functional connectivity attributes that
+best predicted the temporal dimension of mood persistence reflect the
+same latent developmental processes as the brain's natural course of
+maturation. If they did reflect a shared latent process, then the best
+predictors of brain age should conceivably be bona fide predictors of
+mood persistence as well. If not, then the best predictors of brain age
+should be different from those of mood persistence. And if it turned out
+that this extent further depends on the choice of structural versus
+functional data modality, then that information would help to establish
+how their differential sensitivity to developmental variance across
+different time scales might render them more or less predictive of
+depression prognosis. On average, functional connectomes showed highly
+inconsistent and generally poor predictors of brain age
+(\(R^{2}_{func}\)=0.107 \(\pm\) 0.087), such that only 13.74\% of
+recipes might be considered good predictors (\(R^{2}>0.2\)). By
+contrast, structural connectomes explained more variance in brain age on
+average (\(R^{2}_{dwi}\)=0.134 \(\pm\) 0.058) and a greater proportion
+of recipes 13.74\% might be considered good predictors (\(R^{2}>0.2\)).
+On the basis of their independent \(R^{2}\) estimates overall, however,
+connectomes were better predictors of the mood phenotypes than the age
+phenotypes (t(589.26) = -6.86, p \textless{} .001). First, the learned
+connectome model was, on average, better at predicting the mood
+phenotypes than it was at predicting brain age, and did so across a
+largely diverging set of attributes. In effect, this indicated that
+temporal persistence is not merely a function of accelerated aging, but
+reflects latent processes which are orthogonal to the brain's natural
+course of maturation. Second, that structural connectomes more
+consistently and accurately predicted brain age on average than did
+functional connectomes helped to substantiate the intuition that
+structural connectivity plays a comparatively greater role in
+determining age-related changes in
+cognition~\cite{Kaiser2020}. Hence, any comparative
+interpretation in the ability of structural connectomes, over and above
+functional connectomes, to predict chronic depression in the target
+domain would imply that any depressive attributes of structural
+connectomes---severity or persistence---could implicitly explain
+variance in depression persistence by virtue of their corresponding data
+modality alone.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true,angle=270]{Chapter_IV/figures/prediction_performance_overview-5.pdf}
+\caption{(Source Domain) \label{fig:prediction_performance_overview}\scriptsize{The above violin plots depict distributions of predictive $R^2$ (i.e. the white jitter within each violin) that represent the association between each behavioral phenotype of interest (shown in the adjacent legend) and connectome features (functional: red, structural: blue) as estimated in the source domain.}}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{select-connectome-feature-spaces-with-top-performing-predictions-per-phenotype}{%
+\subsubsection{Select connectome feature spaces with top-performing
+predictions per
+phenotype}\label{select-connectome-feature-spaces-with-top-performing-predictions-per-phenotype}}
+\hypertarget{functional}{%
+\paragraph{Functional}\label{functional}}
+\hypertarget{connectome-attribute-sensitivity}{%
+\subparagraph{Connectome
+attribute-sensitivity}\label{connectome-attribute-sensitivity}}
+As an initial step to learning rumination-persistent features of functional connectomes features, we performed decision-tree sensitivity
+analysis whereby we explored the relative importance of each specific
+attribute of interest for capturing rumination and depression, both
+their severity and persistence. Using this approach, we found that each
+phenotype had identifiable affinities that could be ranked on the basis
+of their influence on predictive \(R^{2}\) (\textbf{Table~\ref{tab:sensitivity_func}} and the top plot in \textbf{Figure~\ref{fig:sensitivities_bar_plot_pheno}}). Among the mood phenotypes investigated, all were consistently sensitive to the choice of smoothing
+tolerance, followed by frequency bandwidth
+(\(mean(VIP)_{rum-persist}\) = 50.12\%; \(mean(VIP)_{rum-severity}\) = 38.31\%; \(mean(VIP)_{dep-severity}\) = 53.83\%; \(mean(VIP)_{dep-persist}\) = 18.54\%), and extraction method (\(mean(VIP)_{rum-persist}\) = 50.1\%; \(mean(VIP)_{rum-severity}\) = 0\%; \(mean(VIP)_{dep-severity}\) = 36.3\%;
+\(mean(VIP)_{dep-persist}\) = 0\%). Rumination persistence and
+depression severity were also sensitive to the choice of connectivity
+estimator (\(mean(VIP)_{rum-persist}\) = 20.54\%;
+\(mean(VIP)_{dep-severity}\) = 0\%). Choice of node granularity, however,
+only exhibited any influence on rumination persistence, and that
+influence was near-negligible (\(mean(VIP)_{rum-persist}\) = 0\%).
+
+\hypertarget{top-performing-connectome-attributes}{%
+\subparagraph{Top-performing connectome
+attributes}\label{top-performing-connectome-attributes}}
+\hypertarget{structural}{%
+\paragraph{Structural}\label{structural}}
+\hypertarget{connectome-attribute-sensitivity-1}{%
+\subparagraph{Connectome
+attribute-sensitivity}\label{connectome-attribute-sensitivity-1}}
+As was performed for the functional connectomes, we performed
+decision-tree sensitivity analysis whereby we explored the relative
+importance of each specific attribute of interest for capturing
+depression and rumination severity and persistence. Using this approach,
+we found that each phenotype exhibited identifiable affinities that
+could be ranked on the basis of their influence on predictive \(R^{2}\)
+(\textbf{Table~\ref{tab:sensitivity_dwi}} and the bottom plot in \textbf{Figure~\ref{fig:sensitivities_bar_plot_pheno}}). Direction-extraction
+assumptions (deterministic or probabilistic) for attributing
+neurodevelopmental stochasticity to edges consistently held maximal
+importance across all phenotypes. In general, both depression and
+rumination phenotypes had similar sensitivity profiles, albeit they
+diverged with respect to minimum fiber-length, which influenced
+explained variance in rumination severity
+(\(mean(VIP)_{rum-persistence}\)=0) alone.
+
+\hypertarget{top-performing-connectome-attributes-1}{%
+\subparagraph{Top-performing connectome
+attributes}\label{top-performing-connectome-attributes-1}}
+When performing gridsearch in the source domain, we made a number of key
+insights. In the functional connectome case, all phenotypes had an
+affinity for the triple-network intersection subnetwork. Depression
+persistence also had the widest spectrum of high-performing recipes that
+tracked closely with that which was observed for depression severity,
+which differed only in that it did not include perform well at
+\textgreater0.028 Hz. Rumination persistence performed more poorly at
+\textgreater0.0 8Hz and when using a partial correlation estimator.
+Finally, rumination severity showed only a narrow window of
+high-performing recipes comprising a covariance estimator,
+\textgreater0.08 Hz frequency bandwidth, signal average, 600 Nodes, and
+either 6mm FWHM or no smoothing but not 3mm. In the structural
+connectome case, virtually all phenotypes (with the exception of age)
+had an affinity for the dorsal language network and either long or short
+(but not medium fiber lengths), yet depression and rumination
+persistence showed opposing affinities for deterministic and
+probabilistic tractography, respectively.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true,angle=270]{Chapter_IV/figures/sensitivity_barplot-1.pdf}
+\caption{(Source Domain) \label{fig:sensitivities_bar_plot_pheno}\scriptsize{The figure mosaic depicts two stacked bar plots (left: functional, right: structural) depicting the extent to which perturbation of select connectome attributes of interest in the source domain (x-axis) modulated predictions of rumination and depression phenotypes, construed both as contemporaneous severity and as longitudinal persistence. The y-axis depicts the relative variable importance (VIP) index of $R^{2}$ sensitivity as defined by a Classification and Regression Trees (CART) model, whereby each phenotype is indexed by color (red=Depression Persistence, blue=Depression severity, Yellow=Rumination Persistence, Green=Rumination Severity).}}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\begin{table}
+\begin{minipage}{\textwidth}
+\centering
+\adjustbox{width=0.3\textwidth,height=0.3\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/sensitivity_dwi_tab}}
+\subcaption{\label{tab:sensitivity_dwi}\scriptsize{Structural (LN)}}
+\vspace{\baselineskip}
+\adjustbox{width=0.3\textwidth,height=0.3\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/sensitivity_func_tab}}
+\subcaption{\label{tab:sensitivity_func}\scriptsize{Functional (TN)}}
+\end{minipage}
+\caption{(Source Domain) \label{tab:sensitivity}\scriptsize{These tables summarize the sensitivity of predictive $R^{2}$ to choice of connectome attributes}}
+\end{table}
+\setlength{\belowcaptionskip}{-10pt}
+
+Based on our sensitivity analyses, we next selected a subset of recipes
+of functional and structural connectome attributes based on the ability
+of the corresponding embedded connectomes to explain phenotypically
+distinct variance in rumination and depression construed as persistence
+and contemporaneous severity. To perform this selection in an unbiased
+way, we used the decision-tree cut points learned by minimizing Gini
+impurity of \(R^{2}\) during
+cross-validation~\cite{Breiman1996} (Functional:
+depression severity = \(R^{2}\)\textgreater0.195, rumination severity =
+\(R^{2}\)\textgreater0.097, depression persistence =
+\(R^{2}\)\textgreater0.302; Structural: depression severity =
+\(R^{2}\)\textgreater0.128, rumination severity =
+\(R^{2}\)\textgreater0.085, depression persistence =
+\(R^{2}\)\textgreater0.279), while also controlling for Smoothing
+Tolerance for functional connectomes and Direction Extraction method for
+structural connectomes since those attributes were found to be
+universally important across each of the mood phenotypes. The latter was
+accomplished by further filtering the selected subsets by the respective
+the statistical mode of those attributes for each phenotype.
+
+\hypertarget{part-ii-evaluating-classifiers-of-future-depression-risk-with-attributed-connectomes-and-other-features}{%
+\section{(Part II) Evaluating Classifiers of Future Depression Risk with
+Attributed Connectomes and Other
+Features}\label{part-ii-evaluating-classifiers-of-future-depression-risk-with-attributed-connectomes-and-other-features}}
+
+\hypertarget{summarize-behavioral-data-in-the-target-domain}{%
+\subsection{Summarize behavioral data in the target
+domain}\label{summarize-behavioral-data-in-the-target-domain}}
+As summarized in \textbf{Table~\ref{tab:TrainTest_sample_demographic_descriptives}}, the data analyzed in the target domain consisted of N = 368 participants which, as in the
+source domain, were recruited across two continents but spanned just two
+aggregated data sets (SWU = 147, NKI = 221). The majority of
+participants included in the target sample were, as in the souce
+domain, young adults, but ages varied widely across the 18-65 range,
+with a mean age of 33.1 (SD = 16.3), with balanced gender. All
+participants in the target sample were examined for at least two and at most four visits, all of which were spaced evenly one year apart. In terms of psychopathology, 14.1\% had a prior history of depression, 13\% reported stable use of antidepressant medication throughout their study
+participation, and 12.2\% were found to have comorbidity with at least
+one other psychological disorder (\textbf{Table~\ref{tab:TrainTest_sample_clinical_characteristics}}). To protect against
+these random effects, they were deconfounded from all subsequent linear
+regression models, along with age, gender, race, language, respective
+study site, race, and total duration until follow-up. This involved
+residualizing the input features by subtracting the contributions of
+their confounding variables~\cite{Chyzhyk2018,Rao2017}.
+When considering history of past depression in addition to currently
+significant depressive symptoms, the base rate of chronic depression
+(17.7\%) in the present sample closely approximated the estimated 20\%
+population rate of chronicity typically cited in depression
+literature~\cite{Vos2004}. To ensure that outcome
+variables were representative of population epidemiology, we randomly
+subsampled additional healthy subjects from the public datasets with
+usable neuroimaging data to yield base rates that reflected the latest
+estimates of 1-year depression conversion rate
+(10.4\%)~\cite{Ettman2020} whereby N=32 were not
+depressed at baseline but converted to depression at least one year
+later.
+
+\begin{sidewaystable}
+\begin{minipage}{\textwidth}
+\centering
+\adjustbox{width=\textwidth,height=\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/TrainTest_sample_demographic_descriptives}}
+\subcaption{\label{tab:TrainTest_sample_demographic_descriptives}\scriptsize{Demographic}}
+\vspace{\baselineskip}
+\adjustbox{width=0.25\textwidth,height=0.25\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/TrainTest_sample_clinical_characteristics}}
+\subcaption{\label{tab:TrainTest_sample_clinical_characteristics}\scriptsize{Clinical}}
+\end{minipage}
+\caption{(Target Domain) \label{tab:TrainTest_sample_characteristics}\scriptsize{These tables summarize the demographic (top) and clinical (bottom) characteristics of the data evaluated in the target-domain (N=393). The clinical characteristics reported include the diagnostic subcategory of clinical depression (if available), along with associated base rates. The table also includes an inventory of relevant secondary clinical variables such as depression history, comorbidity, and antidepressant usage, which were used to deconfound the machine-learning classifiers.}}
+\end{sidewaystable}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{feature-benchmarking}{%
+\subsection{Feature Benchmarking}\label{feature-benchmarking}}
+\hypertarget{as-compared-to-randomly-encoding-brain-network-attributes-does-encoding-attributes-associated-with-particular-behavioral-phenotypes-improve-connectome-based-classification-of-depression-prognosis}{%
+\subsubsection{As compared to randomly encoding brain network
+attributes, does encoding attributes associated with particular
+behavioral phenotypes improve connectome-based classification of
+depression
+prognosis?}\label{as-compared-to-randomly-encoding-brain-network-attributes-does-encoding-attributes-associated-with-particular-behavioral-phenotypes-improve-connectome-based-classification-of-depression-prognosis}}
+To evaluate whether encoding \emph{any} phenotypically-meaningful
+attributes in general---depression or rumination measures of severity or
+persistence---to connectomes benefitted classification performance, we
+next compared performance achieved using the four core phenotype-derived
+connectome recipes (for rumination vs.~depression---both their severity
+vs.~persistence) to that achieved using randomly-derived connectome
+recipes. See plot A of \textbf{Figure~\ref{fig:all_comparison_freq}} for a paired
+boxplot visualization of the comparisons. The results showed that in the
+case of classifying chronic depression, AUC was modestly higher when
+attributing connectomes with phenotypic information (\(mean(AUC)\)=0.686
+\(\pm\) 0.013) as compared to random information (\(mean(AUC)\)=0.666
+\(\pm\) 0.007)(paired t(199) = 3.51, 95\% CI {[}\ensuremath{-\infty{}},
+5.482{]}, \emph{p} = 1.999). This effect was not observed for
+classifying depression conversion, however (paired t(199) = -1.11, 95\%
+CI {[}\ensuremath{-\infty{}}, 0.865{]}, \emph{p} = 0.135). Given the
+small size of this effect, however, we next explored whether performance
+might benefit by using connectome features attributed with more
+\emph{specific} phenotypic information.
+
+\hypertarget{as-compared-to-encoding-contemporaneous-brain-network-attributes-of-mood-severity-does-encoding-developmentally-persistent-brain-network-attributes-of-mood-persistence-improve-connectome-based-classification-of-depression-prognosis}{%
+\subsubsection{As compared to encoding contemporaneous brain network
+attributes of mood severity, does encoding developmentally persistent
+brain network attributes of mood persistence improve connectome-based
+classification of depression
+prognosis?}\label{as-compared-to-encoding-contemporaneous-brain-network-attributes-of-mood-severity-does-encoding-developmentally-persistent-brain-network-attributes-of-mood-persistence-improve-connectome-based-classification-of-depression-prognosis}}
+We next explored whether performance benefitted by using connectome
+features encoded with the developmental attributes learned in the souce
+domain. When controlling for multimodal interactions and applying a
+Bonferroni adjusted alpha level of .0125 per test (.05/4), we observed
+that functional connectome features attributed with contemporaneous
+attributes significantly improved classification of depression
+conversion and chronicity (\(mean(AUC)\)=0.699 \(\pm\) 0.016) as
+compared to that of mood persistence attributes (\(mean(AUC)\)=0.645
+\(\pm\) 0.032)(Chronic: paired t(25) = 2.87, 95\% CI {[}0.183, 5.566{]},
+\emph{p} = 0.008; Conversion: paired t(18) = -15.01, 95\% CI {[}-17.781,
+-12.232{]}, \emph{p} = \textless0.001). Similarly, structural connectome
+features attributed with contemporaneous mood attributes also
+significantly improved classification of depression conversion
+(\(mean(AUC)\)=0.687 \(\pm\) 0.014) as compared to that of persistence
+attributes (\(mean(AUC)\)=0.589 \(\pm\) 0.011) (paired t(11) = 13.22,
+95\% CI {[}10.244, 16.205{]}, \emph{p} = \textless0.001). In contrast to
+functional connectome features, however, this difference was reversed in
+the case of chronic depression, where mood persistence attributes also
+significantly improved classification of depression conversion
+(\(mean(AUC)\)=0.617 \(\pm\) 0.014) as compared to that of mood severity
+attributes (\(mean(AUC)\)=0.738 \(\pm\) 0.01)(paired t(16) = 8.91, 95\%
+CI {[}6.098, 11.724{]}, \emph{p} = \textless0.001). See plot B of \textbf{Figure~\ref{fig:all_comparison_freq}} for paired boxplot visualization of the
+comparisons for each depression outcome type and interaction across data
+modalities.
+
+\hypertarget{as-compared-to-encoding-brain-network-attributes-of-depression-directly-does-encoding-attributes-of-rumination-improve-connectome-based-classification-of-depression-prognosis}{%
+\subsubsection{As compared to encoding brain network attributes of
+depression directly, does encoding attributes of rumination improve
+connectome-based classification of depression
+prognosis?}\label{as-compared-to-encoding-brain-network-attributes-of-depression-directly-does-encoding-attributes-of-rumination-improve-connectome-based-classification-of-depression-prognosis}}
+After learning that developmental specificity interacted with connectome
+modality (i.e., severity outperformed persistence in all cases except
+for when predicting chronic depression using the structural modality),
+we next compared classification performance when encoding connectome
+features with rumination attributes versus depression attributes. Since,
+as we discovered earlier, attributing connectomes with any phenotypic
+information as compared to random information did not improve
+predictions above chance when classifying depression conversion risk,
+yet subsequent analysis showed a strong temporal affinity of depression
+conversion to contemporaneous temporal attributes of severity, we here
+assessed only depression severity vs.~rumination severity rather than
+allow for its persistence specifier. In the case of classifying chronic
+depression, however, we proceeded to evaluate differences in predictive
+performance as conferred by rumination vs.~depression irrespective of
+temporal specifier. Again controlling for multimodal interactions and
+applying a Bonferroni adjusted alpha level of .0125 per test (.05/4),
+our results generally showed that the choice of connectome attributes
+optimized for depression vs.~rumination phenotypes was associated with
+meaningful differences in AUC in most cases, albeit the direction of
+this relationship varied depending on the response variable and the data
+modality. See plot C of \textbf{Figure~\ref{fig:all_comparison_freq}} for paired
+boxplot visualization of the comparisons for each depression outcome
+type. When classifying chronic depression using functional connectomes,
+we did not observe any significant difference in AUC when attributing
+the connectomes with rumination attributes as compared to depression
+attributes (paired t(256) = 1.03, 95\% CI {[}-1.482, 3.549{]}, \emph{p}
+= 0.302). When classifying depression conversion using functional
+connectomes, however, we did find a significant gain in AUC when
+attributing the connectomes with rumination attributes
+(\(mean(AUC)\)=0.702 \(\pm\) 0.012) as compared to depression attributes
+(\(mean(AUC)\)=0.614 \(\pm\) 0.006) (paired t(261) = -8.48, 95\% CI
+{[}-11, -5.969{]}, \emph{p} = \textless0.001). When classifying chronic
+depression using structural connectomes, we found a significant gain in
+AUC when attributing the connectomes with rumination attributes
+(\(mean(AUC)\)=0.764 \(\pm\) 0.012) as compared to depression attributes
+(\(mean(AUC)\)=0.665 \(\pm\) 0.012)(paired t(242) = -9.33, 95\% CI
+{[}-11.846, -6.813{]}, \emph{p} = \textless0.001). When classifying
+depression conversion using structural connectomes, however, we also
+found a significant gain in AUC, but in the opposite
+direction---attributing the connectomes with depression attributes
+(\(mean(AUC)\)=0.648 \(\pm\) 0.013) rather than rumination attributes
+(\(mean(AUC)\)=0.594 \(\pm\) 0.009) conferred the greatest gains in
+performance (paired t(246) = 5.58, 95\% CI {[}3.066, 8.099{]}, \emph{p}
+= \textless0.001).
+
+\hypertarget{do-synthetic-i.e.-randomly-rewired-connectomes-perform-comparably-to-observed-connectomes-for-classification-of-depression-prognosis}{%
+\subsubsection{Do synthetic (i.e.~randomly-rewired) connectomes perform
+comparably to ``observed'' connectomes for classification of depression
+prognosis?}\label{do-synthetic-i.e.-randomly-rewired-connectomes-perform-comparably-to-observed-connectomes-for-classification-of-depression-prognosis}}
+We next sought to determine the extent to which the most predictive,
+learned attributes of the connectome features could be a byproduct
+purely of a ``best-fit'' learning process rather than biologically
+``real'' brain network properties. To evaluate this, we created a series
+of synthetic connectomes by randomly rewiring those of each subject for
+the same node granularity and edge density. In particular, we relied on
+(1) a Random Dot-Product Graph (RDPG)~\cite{Young2007},
+in which the probability of an edge existing between pairs of vertices
+is determined by the dot product of their associated latent position
+vectors which are randomly sampled from a prespecified distribution
+(here, \(Normal(0, 1)\)); (2) an Erdos-Renyi
+graph~\cite{Erdos1959}---a special case of RDPG, in
+which all edges are assumed independent and equally likely; (3) a
+Watts-Strogatz graph~\cite{Watts1998}---a special case
+of Erdos-Renyi, that more realistically accounts for triadic closures
+and local clustering; and finally (4) a Barabasi-Albert graph---a
+scale-free improvement upon Erdos-Renyi and Watts-Strogatz (which do not
+not exhibit power laws) that incorporates growth and preferential
+attachment to more closely approximate the hub-emergence processes of
+real-world networks, including brain networks. Based on paired
+comparisons of cross-validated bootstrapped classification performance
+of chronic depression, AUC was significantly higher for the
+``observed'', non-simulated connectome features (\(mean(AUC)\)=0.779
+\(\pm\) 0.027) than for all simulated connectome features
+(\(mean(AUC)\)=0.658 \(\pm\) 0.095f)(Functional \textasciitilde{} RDPG:
+paired t(399) = 4.73, 95\% CI {[}1.912, 7.557{]}, \emph{p} =
+\textless0.001, Erdos-Renyi: paired t(399) = -5.42, 95\% CI {[}-8.238,
+-2.592{]}, \emph{p} = \textless0.001, Watts-Strogatz: paired t(398) =
+9.06, 95\% CI {[}6.24, 11.885{]}, \emph{p} = \textless0.001,
+Barabasi-Albert: paired t(399) = -4.4, 95\% CI {[}-7.226, -1.581{]},
+\emph{p} = \textless0.001, Structural \textasciitilde{} RDPG: paired
+t(398) = 9.75, 95\% CI {[}6.925, 12.57{]}, \emph{p} = \textless0.001,
+Erdos-Renyi: paired t(399) = 8.5, 95\% CI {[}5.68, 11.325{]}, \emph{p} =
+\textless0.001, Watts-Strogatz: paired t(399) = 4.8, 95\% CI {[}1.974,
+7.619{]}, \emph{p} = \textless0.001, Barabasi-Albert: paired t(399) =
+-7.18, 95\% CI {[}-10.001, -4.355{]}, \emph{p} = \textless0.001).
+Interestingly, the observed connectomes were outperformed by Erdos-Renyi
+in the case of classifying depression conversion, for which the learning
+process for the observed connectomes had not been tailored. This is not
+an uncommon type of finding when studying neurobiologically implausible
+generative models like Erdos-Renyi when their parameters are fit
+according to informative metadata, simply due to the added complexity
+that results~\cite{Betzel2017}. See plot D of \textbf{Figure~\ref{fig:all_comparison_freq}} for paired boxplot visualization of the
+comparisons for each depression outcome type.
+
+\hypertarget{as-compared-to-unimodal-predictions-does-stacking-combinations-of-multiple-attributed-connectome-classifiers-optimized-for-each-data-modality-i.e.-structural-functional-and-behavioral-improve-prognostic-classification}{%
+\subsubsection{As compared to unimodal predictions, does ``stacking''
+combinations of multiple attributed connectome classifiers, optimized
+for each data modality (i.e.~structural, functional, and behavioral)
+improve prognostic
+classification?}\label{as-compared-to-unimodal-predictions-does-stacking-combinations-of-multiple-attributed-connectome-classifiers-optimized-for-each-data-modality-i.e.-structural-functional-and-behavioral-improve-prognostic-classification}}
+Finally, we explored the impact of ``stacking'' classifiers, whereby
+random-forest and voting meta-classifiers were trained on the
+predictions from each of the best-performing base classifiers identified
+earlier. This approach offered a brief opportunity to study the relative
+impact of incorporating multiple views of connectome information in
+tandem versus separately. The benefit of studying them in tandem for the
+particular kind of classification problem that we are trying to solve is
+that from a theoretical perspective depression's heterogeneity
+fundamentally warrants multiple views of data---it is unlikely that
+there is any unitary feature modality, except perhaps the brain, whose
+variance can explain homogeneity in the longitudinal trajectory of
+depressed individuals. Importantly, this does not mean that neuroimaging
+instrument can capture that variance, however. Nevertheless, combining
+multiple modalities of neuroimaging data, along with behavioral measures
+that provide real-world context to it, may help to ``tame'' the wide
+heterogeneity of depression, by providing heterogeneous, yet
+complementary, information for more robust prediction. Indeed, this is
+what the results showed. In the case of classifying future depression,
+we observed that stacking multimodal attributed connectome features
+improved predictive performance 16-fold on average over and above
+unimodal classification, which could be observed both when chronic
+depression was the response variable (paired t(199) = -5.11, 95\% CI
+{[}-7.086, -3.142{]}, \emph{p} = \textless0.001) and when depression
+conversion was the response variable (paired t(199) = 9.68, 95\% CI
+{[}7.709, 11.653{]}, \emph{p} = \textless0.001). See plot E of \textbf{Figure~\ref{fig:all_comparison_freq}} for a paired boxplot visualization of
+comparisons between unimodal and multimodal classification for each
+depression outcome type.
+
+We next compared each variation of multimodal prediction, while applying
+a stringent Bonferroni adjusted alpha level of .0016 per test (.05/32).
+When classifying chronic depression, the best performance was achieved
+when combining all three feature modalities (\(mean(AUC)\)=0.813 \(\pm\)
+0.022), followed by combining structural and behavioral
+(\(mean(AUC)\)=0.795 \(\pm\) 0.022), functional and behavioral
+(\(mean(AUC)\)=0.781 \(\pm\) 0.018), and functional and structural
+(\(mean(AUC)\)=0.727 \(\pm\) 0.038). Each of the pairwise differences
+across conditions was statistically significant. Each of the pairwise
+differences across conditions was statistically significant. When
+classifying depression conversion, however, excluding the functional
+connectome modality led to significantly worse performance (DWI
+vs.~FUNC: paired t(199) = -6.83, 95\% CI {[}-9.959, -3.696{]}, \emph{p}
+= \textless0.001), such that the difference in performance when using
+other combinations of stacked features (whereby functional connectomes
+were included) resulted in negligible gains in performance. See plot F
+of \textbf{Figure~\ref{fig:all_comparison_freq}} for a paired boxplot
+visualization of comparisons across stacking combinations for each
+depression outcome type.
+
+\begin{figure}
+    \centering
+    \caption{(Target Domain) \label{fig:all_comparison_freq}\scriptsize{The three figure mosaics presented over the subsequent three pages depict paired comparisons between bootstrapped classifiers, faceted for the two definitions of future depression outcome (chronic and conversion), estimated independently using an auto-tuned logistic regression framework. Comparing classifiers trained on different connectome feature attributions provided a means of directly evaluating both the quality of the Transfer Learning (TL), and indirectly evaluating each of several key assumptions relevant to the etiology of depression maintenance itself. Across all classifiers investigated, the mean ROC AUC was 0.699 $\pm$ 0.078 with a range of [0.423, 0.926]. For each separate plot panel in the mosaic, the x-axis represents discrete latent factors corresponding to one or more connectome attribution schemes of interest learned in the source domain. Each of level of these latent factors (indicated by discrete colors of the point jitter) were determined predictively using the unbiased Gini cutpoints of the decision-tree model trained on multiple connectome recipes in the source domain. Each point in the jitter further corresponds to a single bootstrapped resampling of train-test splits performed on the held-out data in the target domain, and used to cross-validate multiple classifiers. The y-axis represents performance estimates of these classifiers (in units of ROC AUC) trained on the resampled connectome embedding data. The feathered white lines connecting the points across paired boxplots represent precise bootstrap iteration assignments. Although the two definitions of depression outcome are depicted side-by-side for conceptual reference and brevity, they are intentionally separated by the grey background subpanels. That separation reflects that ROC AUC is not directly comparable across outcome types---they are not paired---given that predictions of depression conversion risk included a healthy class of subjects that were not included when predicting chronic depression.}}
+\end{figure}
+\begin{figure}
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \caption{\label{fig:pheno_vs_random}\scriptsize{Effect of knowledge-based connectome transfer learning versus random transfer}}
+          \includegraphics[width=0.75\textwidth,keepaspectratio=true,angle=270]{Chapter_IV/figures/pheno_vs_random-1.pdf}
+    \end{subfigure}
+\end{figure}
+\begin{figure}
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+        \centering
+        \caption{\label{fig:all_comparison_freqA}\scriptsize{Effect of biologically real versus synthetic connectome transfer learning}}
+          \includegraphics[width=0.7\textwidth,keepaspectratio=true,angle=270]{Chapter_IV/figures/all_comparisons_freq-2.pdf}
+    \end{subfigure}
+\end{figure}
+\begin{figure}
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+       \centering
+       \caption{\label{fig:all_comparison_freqB}\scriptsize{Effect of domain-relevant knowledge-based connectome transfer learning}}
+        \includegraphics[width=0.8\textwidth,keepaspectratio=true]{Chapter_IV/figures/all_comparisons_freq-4.pdf}
+    \end{subfigure}
+\end{figure}
+\begin{figure}
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+       \centering
+       \caption{\label{fig:all_comparison_freqC}\scriptsize{Effect of multimodal connectome transfer learning}}
+        \includegraphics[width=0.8\textwidth,keepaspectratio=true]{Chapter_IV/figures/all_comparisons_freq-6.pdf}
+    \end{subfigure}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{part-iii-bayesian-model-evaluation-searching-classifier-posterior-distributions-for-evidence-of-transferred-learning}{%
+\section{(Part III) Bayesian Model Evaluation: Searching Classifier
+Posterior Distributions for Evidence of Transferred
+Learning}\label{part-iii-bayesian-model-evaluation-searching-classifier-posterior-distributions-for-evidence-of-transferred-learning}}
+The frequentist approach that we have used so far was convenient for quickly evaluating a variety of paired comparisons, but it did not allow us to rule out possible equivalence in performance of the two models. To reach that kind of conclusion, a Bayesian approach is necessary.
+
+\hypertarget{selecting-informative-priors}{%
+\subsubsection{Selecting Informative
+Priors}\label{selecting-informative-priors}}
+\hypertarget{measurement-error}{%
+\paragraph{Measurement Error}\label{measurement-error}}
+When controlling for modality and choice of phenotype criterion variable
+as random effects of a linear mixed model, the known discriminability
+values of each attributed connectome recipe were strongly associated
+with the predictive \(MSE\) benchmarks (\(R^{2}_{cond}\)=0.67, beta =
+0.15, 95\% CI {[}0.06, 0.24{]}, t(929) = 3.17, p = 0.002; Std. beta =
+-0.11, 95\% CI {[}-0.99, 0.78{]}), and the width of their multiverse
+confidence intervals (\(R^{2}_{cond}\)=0.573, beta = 0.83, 95\% CI
+{[}0.13, 1.54{]}, t(925) = 2.32, p = 0.021; Std. beta = -0.36, 95\% CI
+{[}-1.50, 0.78{]}), achieved when using those connectomes as features in
+the regression models learned in the source domain (see star plots in
+\textbf{Figure~\ref{fig:discrim_as_me_errorCI}}). We regarded the strength of
+these findings, which alluded to the benefits of discriminability-based
+transfer learning (DBT)~\cite{Pratt1993} even in the
+context of predicting continuous outcomes, as a clear indication of the
+importance of connectome measurement-error for yielding generalizable
+predictions. Hence, we hypothesized that incorporating known measurement
+error values of each connectome recipe (among those determined in the
+source and target domains to be optimal), might further boost
+classification performance if incorporated in a Bayesian transfer
+learning setting. Rather than recycle discriminability-based priors,
+which is a measure of global similarity, the incorporation of which
+would risk ``double-dipping'', we instead reverse-engineered known
+test-retest reliability (\(ICC\)) priors at the local (i.e.~nodal)
+level, which we further weighted by their multiverse standard-deviations
+derived from the same previous study.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true,angle=270]{Chapter_IV/figures/discrim_as_me_error-2.pdf}
+\caption{(Target Domain) \label{fig:discrim_as_me_errorCI}\scriptsize{This figure is a star-plot that depicts the multiverse of prediction confidence interval widths (y-axis) derived from the orthogonal R2/MSE bechmarks associated with distinct structural (right) and functional (left) connectome feature-spaces as a function of their known discriminability-error estimates. Here, "stars" are colored by the phenotype-associated recipe of connectome attribution (rumination=green, depression=grey), where shape is the temporality of that phenotype (circle=persistence, triangle=severity).}}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{phenotypic-affinity}{%
+\paragraph{Phenotypic Affinity}\label{phenotypic-affinity}}
+Transferred functional connectome hyperpriors for rumination severity
+were: \(\beta \sim Normal(0, 0.56)\) and \(\alpha \sim Normal(0, 0.54)\)
+for depression severity, \(\beta \sim Normal(0, 0.64)\) and
+\(\alpha \sim Uniform(0, 1.0)\). Transferred structural connectome
+hyperpriors for rumination persistence were:
+\(\beta \sim Uniform(0, 1.0)\), and \(\alpha \sim Uniform(0, 1.0)\) and
+for depression persistence, \(\beta \sim Normal(0, 0.62)\) and
+\(\alpha \sim Uniform(0, 1.0)\). All flat priors included
+\(\beta \sim Normal(0, 10)\) and \(\alpha \sim Uniform(0, 1)\).
+
+Next, we proceed to evaluate the priors obtained from the source domain
+(and more generally from previous literature) in light of the present
+``evidence''---i.e.~the dataset used for classifier evaluation in the
+target domain. Before estimating each logistic regression model with
+MCMC, we therefore first considered a scenario with no predictors of
+each of the binary responses (i.e.~depression conversion and chronic
+depression). This enabled us to estimate an optimal distribution of
+weights implied by the choice of priors and likelihood. Ideally these
+distributions would have at least some mass centralized around all or
+most of the plausible data. We confirmed this through a series of prior
+predictive checks whereby the priors and likelihood were simulated for
+each classification scenario, and the resulting posterior distributions
+were subsequently evaluated.
+
+\hypertarget{comparing-the-classifier-posterior-distributions-of-prior-attributed-connectome-models}{%
+\subsubsection{Comparing the Classifier Posterior Distributions of
+Prior-Attributed Connectome
+Models}\label{comparing-the-classifier-posterior-distributions-of-prior-attributed-connectome-models}}
+Following prior predictive checks, we estimated separate Bayesian
+logistic regression models for classifying each of chronic depression
+and depression conversion using the selected functional connectome
+features, structural connectome features, behavioral features, and
+multimodal combination of features. For each of these models, we
+performed MCMC using Stan's default No U-Turn Sampler
+(NUTS)~\cite{STAN}, configured with the default 4
+chains, 2000 warmup samples drawn to adapt sampling, and 5000 total
+iterations per chain while specifying several variations of
+priors---flat / weakly informative, informative (i.e.~based on
+phenotypic affinity to rumination-persistence and depression
+persistence), and a ``horseshoe'' prior (i.e.~a shrinkage distribution
+akin to lasso/ridge penalties in regularized regression).
+
+Following prior predictive checks, posterior estimation of each Bayesian
+logistic-regression classifier, convergence diagnostics, and posterior
+predict checks~\cite{Gabry2019}(see supplementary
+results \ref{appendix:bayesian_diagnostic_tests}), we performed a series of model
+comparisons using LOO-CV~\cite{Vehtari2016} to evaluate
+the quality of each phenotypically-attributed set of informative priors,
+for each feature modality. Through this approach, we could perhaps
+determine whether priors associated with predicting a particular
+phenotype (i.e.~rumination or depression/ severity or persistence) in
+the source domain was more or less beneficial for improving
+classification of those at risk of future depression onset or
+persistence. When using functional connectome features, we found that
+both sets of strong priors, optimized for each phenotype of interest
+(i.e.~depression and rumination), outperformed equivalent models fitted
+with flat priors and a regularized horseshoe prior (i.e.~a Bayesian
+``elastic-net''-equivalent).
+
+\hypertarget{functional-1}{%
+\subparagraph{Functional}\label{functional-1}}
+In the case of using functional connectome features, priors derived from
+predicting a rumination phenotype in particular outperformed the others
+for predicting both chronic and conversion outcomes
+(\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.73;
+\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.64), where the
+rankings in terms of the difference in expected log predictive density
+was as follows for classifying chronic (depression priors:
+\(elpd\)=-106.16, \(SE\)=4.29), (``horseshoe'' priors: \(elpd\)=-106.44,
+\(SE\)=2.03), (flat priors: \(elpd\)=-107.61, \(SE\)=5.07) and for
+classifying depression conversion: (depression priors:
+\(elpd_{diff}\)=-0.27, \(SE_{diff}\)=1.53), (``horsehoe'' priors:
+\(elpd_{diff}\)=-0.41, \(SE_{diff}\)=1.17), (flat priors:
+\(elpd_{diff}\)=-2.98, \(SE_{diff}\)=2.55). Further incorporating
+measurement-error priors for each respective functional connectome hub
+revealed a 2.55-SE difference (chronic, \(elpd\)=-105.45) and 2.5-SE
+difference (conversion, \(elpd\)=-108) in performance with predictive
+gains of 15.31\% and 15.69\% for classifying chronic and conversion,
+respectively. When performing Bayesian paired t-tests of the classifiers
+of chronic depression, we found that on the basis of 1000 posterior
+draws of AUC, there was very strong evidence (BF = 43.80) in favour of
+in favor of the rumination-attributed functional connectome features
+over the depression-attributed functional connectome features, which
+approached a 100\% probability of possibly existing within an 89\% cred.
+interval {[}-0.007-0.002{]}, and which was not undecided evidence
+(approaching 25.775\% in ROPE) against the null hypothesis in a test of
+practical equivalence. Similarly, for classifiers of depression
+conversion, we found that on the basis of 1000 posterior draws of AUC,
+there was anecdotal evidence (BF = 2.89) in favour of in favor of the
+rumination-attributed functional connectome features over the
+depression-attributed functional connectome features, which approached a
+99.8\% probability of possibly existing within an 89\% cred. interval
+{[}0.0010.005{]}, and which was not undecided evidence (approaching
+58.4\% in ROPE) against the null hypothesis in a test of practical
+equivalence.
+
+\hypertarget{structural-1}{%
+\subparagraph{Structural}\label{structural-1}}
+Unlike with functional connectome features, in the structural case,
+optimal priors diverged for classifying chronic as compared to
+conversion. When classifying chronic, for instance, priors derived from
+predicting a rumination phenotype again outperformed the others
+(\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\) = 0.78), where the
+rankings in terms of the difference in expected log predictive density
+proceeded as follows: (depression priors: \(elpd\)=-89.98, \(SE\)=6),
+(``horsehoe'' priors: \(elpd\)=-90.46, \(SE\)=7), (flat priors:
+\(elpd\)=-94.37, \(SE\)=8.84). When classifying conversion, on the other
+hand, the ``horseshoe'' prior-informed model was best
+(\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.63). And this
+time, although the phenotypically informative priors still improved
+predictive performance over and above the flat-prior model, the model
+informed with depression priors outperformed that informed with
+rumination priors (depression priors: \(elpd_{diff}\)=-3.6,
+\(SE_{diff}\)=2.82), (rumination priors: \(elpd_{diff}\)=-5.43,
+\(SE_{diff}\)=3.65), (flat priors: \(elpd_{diff}\)=-7.01,
+\(SE_{diff}\)=4.22). Further incorporating measurement-error priors for
+each respective structural connectome hub revealed a 3.14-SE difference
+(chronic, \(elpd\)=-90.92) and 0.25-SE difference (conversion,
+\(elpd\)=-117.58) in performance with predictive gains of 0.84\% and
+8.33\% for classifying chronic and conversion, respectively. When
+performing Bayesian paired t-tests of the classifiers of chronic
+depression, we found that on the basis of 1000 posterior draws of AUC,
+there was extreme evidence (BF \textgreater{} 1000) in favour of in
+favor of the rumination-attributed structural connectome features over
+the depression-attributed structural connectome features, which
+approached a 100\% probability of possibly existing within an 89\% cred.
+interval {[}0.0030.007{]}, and which was not undecided evidence
+(approaching 7.725\% in ROPE) against the null hypothesis in a test of
+practical equivalence. Similarly, for classifiers of depression
+conversion, we found that on the basis of 100 posterior draws of AUC,
+there was anecdotal evidence (BF = 0.354) in favor of the
+depression-attributed structural connectome features over the
+rumination-attributed structural connectome features, which approached a
+93.25\% probability of not existing within an 89\% cred. interval
+{[}-0.0020.014{]}, and which was not undecided evidence (approaching
+30.95\% in ROPE) against the null hypothesis in a test of practical
+equivalence.
+
+See \textbf{Table~\ref{tab:bayesian_hubs_chronic}} for a summary of the relative
+importance of structural connectome hubs used to classify chronic
+depression with Bayesian optimization. As indicated in the table, those
+hubs with largest feature importances (with respect to their
+connectivity to all other hubs in the LN), were the medial temporal
+gyrus (MTG), postcentral gyrus (PoG), inferior frontal gyrus (IFG), and
+the precuneus (Pcun).
+
+\begin{table}
+\centering
+\adjustbox{width=0.4\textwidth,height=0.4\textheight,keepaspectratio=true}{\subfile{Chapter_IV/results/hub_ranking_bayesian_model_chronic}}
+\caption{(Target Domain) \label{tab:bayesian_hubs_chronic}\scriptsize{This table summarizes the
+beta coefficients for each of the structural connectome hubs of the LN
+that were used to train a Bayesian logistic regression model of chronic
+depression. These weights, which have also been standardized, further
+reflect the boosting effect of transferring ``hyperiors'' (a prior distribution on a hyperparameter), along with node-level
+measurement-errors priors. The neuroanatomical location for the named
+hubs in the first column were assigned by
+consensus-labeling~\cite{Craddock2013a} in PyNets, but
+ultimately names here using the Brainnetome
+Atlas~\cite{Fan2016}. Specifically, the acronyms,
+followed by an underscore R and L for their right and left disctinctions,
+respectively, reflect the following regional mappings: the cingulate
+gyrus (CG), inferior frontal gyrus (IFG), inferior parietal lobe (IPL),
+superior parietal lobe (SPL), medial frontal gyrus (MFG), medial
+temporal gyrus (MTG), orbital frontal gyrus (OrG), paracentral gyrus
+(PCL, lower limb region) postcentral gyrus (PoG), precuneus (Pcun),
+orbitofrontal gyrus (OrG), and superior frontal gyrus (SFG).}}
+\end{table}
+\setlength{\belowcaptionskip}{-10pt}
+
+\begin{sidewaysfigure}
+\centering
+\hspace{-3cm}
+\includegraphics[width=\textheight,keepaspectratio=true]{Chapter_IV/figures/TrainTest_set_mosaic.png}
+% \captionsetup{margin=-2.5cm}
+  \caption{(Target Domain) \label{fig:TrainTest_feature_imp_connectome}\scriptsize{This figure is a mosaic of connectome feature ``co-importance'' for nodes of the LN (structural, bottom row) subnetworks used to train classifiers of chronic depression. Nodes are annotated according to the Brainnetome atlas and the size of each node is proportional to its relative importance for driving classification of each of the two definitions of future depression under investigation. Color brightness corresponds to the standard deviation of feature importance across bootstrapped predictions.}}
+\end{sidewaysfigure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\begin{sidewaysfigure}
+\centering
+\includegraphics[width=\textheight,keepaspectratio=true]{Chapter_IV/figures/anomaly_matrices_mosaic.pdf}
+% \captionsetup{margin=-2.5cm}
+\caption{(Target Domain) \label{fig:AnomalyMatricesMosaic}\scriptsize{This figure depicts a set of feature ``co-importance'' anomaly matrices that correspond to the connectome plot in \textbf{Figure~\ref{fig:TrainTest_feature_imp_connectome}}. For each matrix of the eight shown, the x-axis lists each of the highest-importance (structural/functional) connectome hubs found to be most predictive of the indicated output variable, and the y-axis lists the same hubs such that the color intensity of their connectivity in the matrix (red=strongest, blue=weakest) reflects the degree of hub ``co-occurrence'' in the same feature-space. Whereas the top row depicts the raw anomaly matrices, the bottom row depicts a smoothed variant of the same as further smoothed by deriving a contrast image using the Network-Based Statistic (NBS)~\cite{Zalesky2010}}}
+\end{sidewaysfigure}
+\setlength{\belowcaptionskip}{-10pt}
+
+\hypertarget{multimodal}{%
+\subparagraph{Multimodal}\label{multimodal}}
+Although there was no phenotypically-relevant prior knowledge that was
+incorporated into the behavioral-features-only model, using the
+``horseshoe'' prior did lend to improved prediction as compared to using
+the ``flat'' prior (Chronic:
+\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.73;
+\(elpd\)=-94.17, \(SE\)=7.93; Conversion:
+\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.64;
+\(elpd_{diff}\)=-5.53, \(SE_{diff}\)=2.73), and the measurement-error
+model. Nevertheless, the behavioral model outperformed the functional
+connectome model for classifying both outcomes (Chronic: \(elpd\)=14.09;
+Conversion: \(elpd_{diff}\)=5.223), though the posterior distributions
+of predicted probabilities were similar between the two and hinted that
+they may explain similar underlying variance. Further incorporating
+published measurement-error priors for each behavioral measure again
+yielded a 2.55-SE difference (Chronic, \(elpd\)=-105.45) and a 2.32-SE
+difference (Conversion, \(elpd\)=-112.36) in performance, with
+associated performance gains of 15.31\% and 2.83\% for chronic and
+conversion, respectively. Finally, when stacking the best model
+identified for each modality into hierarchical ensembles, in a similar
+spirit to that performed in the frequentist context, we again found that
+this approach outperformed each of the unimodal models for classifying
+both outcomes (Chronic:
+\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.88; Conversion:
+\(\mathrm{\textit{E}}(\mathrm{\hat{\text{AUC}}})\)=0.78, see bottom row
+of \textbf{Figure~\ref{fig:all_comparisons_bayes}})) and that incorporating the
+``horseshoe'' prior on the super-learner improved model performance over
+and above using a flat prior as well (Chronic: \(elpd\)=-59.6,
+\(elpd\)=3.84; Conversion: \(elpd_{diff}\)=-11.04, \(SE_{diff}\)=3.69).
+
+\hypertarget{does-a-stacked-bayesian-model-improve-classification-performance-beyond-that-achieved-from-the-stacked-frequentist-model}{%
+\paragraph{Does a stacked Bayesian model improve classification
+performance beyond that achieved from the stacked frequentist
+model?}\label{does-a-stacked-bayesian-model-improve-classification-performance-beyond-that-achieved-from-the-stacked-frequentist-model}}
+Finally, we (informally) compared the best stacked classifiers attained
+from the non-Bayesian (i.e.~``frequentist'') framework with those
+attained from the Bayesian framework. This was only a
+``pseudo-comparison'' because the distributions of AUC for the latter
+were posterior samples rather than bootstraps, and hence the comparisons
+were not technically paired either. Still, this final test provided a
+helpful way of conceptualizing the impact of transferring learning
+directly via the use of strongly-informed priors and indirectly via
+feature-space rankings with mostly arbitrary cut-points. In general, the
+range of bootstrapped ROC AUC among the frequentist classifiers was much
+wider ({[}0.524, 0.871{]}) than that of the posterior distribution of
+ROC AUC sampled from the Bayesian classifiers ({[}0.753, 0.903{]}).
+Furthermore, the results showed that including rumination and depression
+priors as a form of direct model-based transfer learning further
+benefited prediction over and above that achieved through feature-based
+transfer learning alone (see bottom rows of \textbf{Figure~\ref{fig:all_comparisons_bayes}}). This could be observed using both
+frequentist corrected paired t-testing and Bayesian paired t-testing,
+and when classifying chronic depression and depression conversion. For
+predicting chronic, this amounted to a 7.75\% gain in AUC (paired t(199)
+= 4.7, 95\% CI {[}2.724, 6.668{]}, \emph{p} = \textless0.001)).
+Expressed in terms of Bayes Factor, on the basis of 100 posterior draws
+of AUC, there was extreme evidence (BF \textgreater{} 1000) in favour of
+in favor of the stacked Bayesian multimodal model over the stacked
+frequentist multimodal model, which approached a 100\% probability of
+possibly existing within an 89\% cred. interval {[}-0.045-0.042{]}, and
+which was not significant evidence (approaching 0\% in ROPE) against the
+null hypothesis of practical equivalence. For predicting conversion,
+this amounted to a 14.1\% gain in AUC (paired t(199) = 11.14, 95\% CI
+{[}9.164, 13.107{]}, \emph{p} = \textless0.001). Expressed in terms of
+Bayes Factor, on the basis of 100 posterior draws of AUC, there was
+extreme evidence (BF \textgreater{} 1000) in favour of in favor of the
+stacked Bayesian multimodal model over the stacked frequentist
+multimodal model, which approached a 100\% probability of possibly
+existing within an 89\% cred. interval {[}-0.093-0.09{]}, and which was
+not significant evidence (approaching 0\% in ROPE) against the null
+hypothesis of practical equivalence.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio=true]{Chapter_IV/figures/all_comparisons_bayes-4.pdf}
+\end{figure}
+\begin{figure}
+\ContinuedFloat
+\centering
+\caption{(Target Domain) \label{fig:all_comparisons_bayes}\scriptsize{The figure mosaic is a
+Bayesian variant of the frequentist
+paired comparisons in \textbf{Figure~\ref{fig:all_comparison_freq}}. We used this complementary family of methods to triangulate the findings made in the
+frequentist case when samples were not overlapping. In particular, we used Bayesian paired 
+t-tests with Bayes factor and Leave-One-Out (LOO) log
+predictive density~\cite{Vehtari2016,Gelman2013} with
+N=100 posterior predictive draws of ROC AUC from Bayesian logistic regression
+classifiers of chronic depression and depression conversion, and trained the
+same underlying connectome features as those used in \textbf{Figure~\ref{fig:all_comparison_freqA}} and \textbf{Figure~\ref{fig:all_comparison_freqC}}. Aside
+from leveraging alternative benchmarks of model evaluation, the Bayesian
+case also offered a model-based extension of TL through the use of prior
+distributions~\cite{Chandra2020,Yang2020}. These included both measurement-error priors 
+of connectome hubs learned from a previous reproducibility benchmarking
+study~\cite{Pisner2021a} and model coefficient
+hyperpriors---priors on hyperparameters learned from predictions from the source domain. 
+In this context, the Bayesian variant of null models
+(akin to those used in the frequentist, feature-based TL case shown in
+\ref{fig:all_comparison_freqC}) amounted to ``flat priors'' (i.e.~an
+uninformed, uniform distribution). After comparative evaluations again
+revealed the benefit of transferring phenotypic knowledge of rumination
+persistence for classifying those at risk of chronic depression, the
+incremental and combined addition of a ``horseshoe'' prior
+shrinkage~\cite{Carvalho2009} akin to the elastic-net,
+multimodal model stacking~\cite{Yao2018} across
+structural, functional, and behavioral modalities, and the measurement
+error penalties all substantially boosted
+prediction~\cite{Richardson1993}. In fact, the Bayesian
+model outperformed the frequentist by 7.75\%. As in the plots of
+\ref{fig:all_comparison_freq}, plot A is again faceted by outcome type
+(albeit any direct comparison of AUC distributions across outcome types
+would be inappropriate since they are not paired). The bottom plot (B)
+consists of two Bayesian ROC curves that depicts the log predictive
+density of AUC for classifying chronic (left) and conversion (right)
+(where the variety of overlaid curve line colors correspond to separate
+posterior draws). In both cases, sensitivity is shown along the x-axis
+and represents the proportion of those who were correctly identified as
+being chronic (left) and converted (right), whereas specificity is shown
+along the y-axis and represents the proportion of those who were
+correctly identified as being episodic (left) and remained healthy
+(right), respectively.}}
+\end{figure}
+\setlength{\belowcaptionskip}{-10pt}
+
+For results from additional exploratory (frequentist) comparisons
+(e.g.~logistic regression vs.~`dummy' regression, TN/LN subgraphical
+connectomes vs.~whole-brain connectomes, structural vs.~functional
+connectomes, learned connectomes vs.~graph-free learned signal), see
+supplemental
+results\textasciitilde{}\ref{appendix:exploratory_frequentist_tests}.
+\end{document}
